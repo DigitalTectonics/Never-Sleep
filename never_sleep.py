@@ -14,31 +14,29 @@ class Direction_Switch:
     
     default = pyautogui.move(1, 0)
     
-    return getattr(self, 'case_' + str(direction_enum.name), lamba: default)()
+    return getattr(self, 'case_' + str(direction_enum.name), lambda: default)()
   
-  def case_RIGHT
+  def case_RIGHT(self):
     pyautogui.move(1, 0)
     return
   
-  def case_LEFT
+  def case_LEFT(self):
     pyautogui.move(-1, 0)
     return
   
-  def case_UP
+  def case_UP(self):
     pyautogui.move(0, -1)
     return
   
-  def case_DOWN
+  def case_DOWN(self):
     pyautogui.move(0, 1)
     return
   
-  direction_index = 1
-  direction_switch = Direction_Switch()
+direction_index = 1
+direction_switch = Direction_Switch()
   
-  while True:
-    sleep_time = random.randint(10,120)
-    time.sleep(sleep_time)
-    direction_switch.direction(Direction(direction_index))
-    direction_index = direction_index + 1
-    if direction_index > 4:
-      direction_index = 1
+while True:
+  sleep_time = random.randint(10,120)
+  time.sleep(sleep_time)
+  direction_switch.direction(Direction(direction_index))
+  direction_index = random.randint(1,4)
